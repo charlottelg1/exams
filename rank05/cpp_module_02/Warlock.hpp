@@ -5,7 +5,6 @@
 # include "ASpell.hpp"
 # include "ATarget.hpp"
 # include "SpellBook.hpp"
-# include <map>
 
 class Warlock
 {

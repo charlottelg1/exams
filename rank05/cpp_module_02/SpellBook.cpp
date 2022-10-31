@@ -9,10 +9,8 @@ SpellBook const &SpellBook::operator=(SpellBook const &assign){(void)assign;retu
 SpellBook::~SpellBook()
 {
 	std::map<std::string, ASpell*>::iterator it = _spellBook.begin();
-	for (; it != _spellBook.end(); ++it)
-	{
+	for (; it != _spellBook.end();++it)
 		delete it->second;
-	}
 	_spellBook.clear();
 }
 
@@ -24,13 +22,16 @@ void SpellBook::learnSpell(ASpell* spell)
 
 void SpellBook::forgetSpell(std::string const &spell)
 {
-	_spellBook.erase(this->_spellBook.find(spell));
+	std::map<std::string, ASpell*>::iterator it = _spellBook.find(spell);
+	if (it != _spellBook.end())
+		delete it->second;
+	_spellBook.erase(it);
 }
 
 ASpell* SpellBook::createSpell(std::string const &spell)
 {
 	std::map<std::string, ASpell*>::iterator it = _spellBook.find(spell);
 	if (it != _spellBook.end())
-		return _spellBook[spell];
-	return NULL;
+		return (_spellBook[spell]);
+	return (NULL);
 }

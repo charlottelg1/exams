@@ -2,7 +2,7 @@
 # define TARGETGENERATOR_HPP
 
 # include "ATarget.hpp"
-#include <vector>
+#include <map>
 
 class TargetGenerator
 {
@@ -10,7 +10,7 @@ class TargetGenerator
 		TargetGenerator(TargetGenerator const &copy);
 		TargetGenerator const &operator=(TargetGenerator const &assign);
 
-		std::vector<ATarget *>	_generator;
+		std::map<std::string,ATarget *>	_generator;
 
 	public :
 		TargetGenerator();
