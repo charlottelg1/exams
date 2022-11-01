@@ -32,7 +32,7 @@ void TargetGenerator::forgetTargetType(std::string const &target)
 	std::map<std::string, ATarget*>::iterator it = _generator.find(target);
 	if (it != _generator.end())
 		delete it->second;
-	_generator.erase(it);
+	_generator.erase(target);
 }
 
 ATarget* TargetGenerator::createTarget(std::string const &target)
